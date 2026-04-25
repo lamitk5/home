@@ -38,7 +38,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 70px;
-    font-size: 15px;
+    font-size: 16px;
+    background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('anh-home/z7758673711494_b6b8ba3e553a5e5da709ea27fa669e56.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Typography - Luxury Serif for Headings */
@@ -47,15 +51,15 @@ h1, h2, h3, h4 {
     color: var(--text-dark);
     line-height: 1.2;
     font-weight: 600;
-    letter-spacing: -0.5px;
+    letter-spacing: 0.5px;
 }
 
 h1 {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h2 {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Header */
@@ -158,10 +162,270 @@ section {
     padding: 100px 0;
 }
 
+/* Location Section */
+.location-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.location-info h2 {
+    font-size: 42px;
+    margin-bottom: 24px;
+    color: var(--secondary);
+}
+
+.location-info p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: 32px;
+}
+
+.location-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.location-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.loc-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.loc-icon {
+    font-size: 24px;
+}
+
+.location-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.location-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.location-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(26,26,46,0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .location-content {
+        grid-template-columns: 1fr;
+    }
+    .location-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Popup Modal */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-modal {
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.9);
+    transition: var(--transition);
+    box-shadow: var(--shadow-xl);
+}
+
+.popup-overlay.show .popup-modal {
+    transform: scale(1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--bg-light);
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.popup-close:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.popup-content {
+    padding: 40px;
+    text-align: center;
+}
+
+.popup-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.popup-content h3 {
+    font-size: 28px;
+    color: var(--secondary);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.popup-content p {
+    font-size: 16px;
+    color: var(--text-medium);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.popup-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.popup-features span {
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 8px 12px;
+    background: var(--bg-light);
+    border-radius: 8px;
+}
+
+.popup-image {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.popup-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.popup-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.popup-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.popup-note {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 30px 20px;
+    }
+    .popup-content h3 {
+        font-size: 24px;
+    }
+    .popup-features {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Elegant Section Titles */
 .section-title-iig {
     text-align: center;
     margin-bottom: 60px;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--secondary);
 }
 
 .section-title-iig::before {
@@ -304,11 +568,12 @@ section {
 
 .hero-content-iig h1 {
     font-size: clamp(3.5rem, 7vw, 5.5rem);
-    font-weight: 400;
-    line-height: 1;
+    font-weight: 600;
+    line-height: 1.1;
     margin-bottom: 24px;
     color: white;
     font-family: 'Cormorant Garamond', serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-subtitle-line {
@@ -322,12 +587,12 @@ section {
 }
 
 .hero-description {
-    font-size: 16px;
-    color: rgba(255,255,255,0.85);
+    font-size: 18px;
+    color: rgba(255,255,255,0.95);
     margin-bottom: 16px;
-    line-height: 1.9;
-    max-width: 480px;
-    font-weight: 400;
+    line-height: 1.8;
+    max-width: 520px;
+    font-weight: 500;
 }
 
 .hero-subtitle {
@@ -764,11 +1029,11 @@ section > .container {
 .pricing-table th {
     background: var(--secondary);
     color: white;
-    padding: 24px 20px;
+    padding: 24px 16px;
     text-align: center;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
     border: none;
 }
 
@@ -803,9 +1068,11 @@ section > .container {
 }
 
 .pricing-table td {
-    padding: 24px 20px;
+    padding: 20px 16px;
     text-align: center;
     border-bottom: 1px solid var(--border-light);
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .pricing-table tr:last-child td:first-child {
@@ -831,14 +1098,16 @@ section > .container {
 .strike {
     text-decoration: line-through;
     color: var(--text-light);
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .price-combo {
     color: var(--primary);
-    font-weight: 600;
-    font-size: 22px;
+    font-weight: 700;
+    font-size: 24px;
     font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.5px;
 }
 
 .hot-tag {
@@ -1108,11 +1377,12 @@ section > .container {
 
 .stat-number {
     display: block;
-    font-size: 56px;
-    font-weight: 400;
+    font-size: 52px;
+    font-weight: 600;
     color: var(--primary);
     font-family: 'Cormorant Garamond', serif;
     line-height: 1;
+    letter-spacing: 1px;
 }
 
 .stat-label {
@@ -1231,11 +1501,12 @@ section > .container {
 }
 
 .countdown-wrapper h3 {
-    font-size: 24px;
+    font-size: 26px;
     color: white;
     margin-bottom: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .countdown-timer {
@@ -1252,15 +1523,16 @@ section > .container {
 
 .countdown-number {
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background: white;
-    border-radius: 8px;
-    font-size: 36px;
-    font-weight: 700;
+    border-radius: 12px;
+    font-size: 40px;
+    font-weight: 600;
     color: var(--primary);
-    line-height: 80px;
-    font-family: 'Playfair Display', serif;
+    line-height: 90px;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 2px;
 }
 
 .countdown-label {
