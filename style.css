@@ -299,19 +299,24 @@ section {
     position: absolute;
     top: 16px;
     right: 16px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border: none;
     background: var(--bg-light);
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     color: var(--text-light);
     transition: var(--transition);
-    z-index: 10;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.popup-close:hover {
+.popup-close:hover,
+.popup-close:active {
     background: var(--primary);
     color: white;
 }
