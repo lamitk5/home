@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE ROCK LUXURY TAM DAO HOTEL | Combo Ưu Đãi 2026 - Đặt Phòng Ngay</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="THE ROCK LUXURY TAM DAO HOTEL - Đặt phòng khách sạn 5 sao tại Tam Đảo với COMBO ưu đãi đặc biệt. Tặng bữa ăn trị giá 600.000đ. Giá từ 1.759.000đ/đêm.">
@@ -20,13 +20,18 @@
                 <span class="logo-icon">◆</span>
                 <span class="logo-text">THE ROCK <small style="font-size:0.5em;opacity:0.7;font-family:'Montserrat',sans-serif;letter-spacing:2px;">TAM ĐẢO</small></span>
             </div>
-            <nav class="header-nav">
-                <a href="#rooms">Phòng</a>
-                <a href="#pricing">Bảng giá</a>
-                <a href="#reviews">Đánh giá</a>
-                <a href="#contact">Liên hệ</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="header-nav" id="headerNav">
+                <a href="#rooms" onclick="closeMobileMenu()">Phòng</a>
+                <a href="#pricing" onclick="closeMobileMenu()">Bảng giá</a>
+                <a href="#reviews" onclick="closeMobileMenu()">Đánh giá</a>
+                <a href="#contact" onclick="closeMobileMenu()">Liên hệ</a>
+                <a href="#register" class="header-cta" onclick="closeMobileMenu()">Đặt phòng</a>
             </nav>
-            <a href="#register" class="header-cta">Đặt phòng</a>
         </div>
     </header>
 
@@ -614,6 +619,21 @@
                 closePopup();
             }
         });
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const nav = document.getElementById('headerNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            nav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('headerNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+        }
     </script>
 </body>
 </html>
