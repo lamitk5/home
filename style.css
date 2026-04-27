@@ -744,7 +744,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('anh-home/z7758673711494_b6b8ba3e553a5e5da709ea27fa669e56.jpg') center/cover;
+    background: url('anh-home/z7758673741221_fffe9ef94df2ca0ea807650adc7cb112.jpg') center/cover;
     opacity: 0.15;
 }
 
@@ -969,17 +969,55 @@ section {
 }
 
 /* Hero Image */
-.hero-image-container {
+.hero-images-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.hero-image-main,
+.hero-image-sub {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    height: 280px;
 }
 
-.hero-image-iig img {
+.hero-image-main:hover,
+.hero-image-sub:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.hero-image-main img,
+.hero-image-sub img {
     width: 100%;
-    border-radius: 16px;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    transition: var(--transition);
+}
+
+.hero-image-main:hover img,
+.hero-image-sub:hover img {
+    transform: scale(1.03);
+}
+
+.hero-image-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(26,26,46,0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .hero-image-badge {
@@ -1222,6 +1260,287 @@ section > .container {
 .rooms-gallery-extra img:hover {
     transform: scale(1.03);
     box-shadow: var(--shadow-md);
+}
+
+/* Full Room Gallery Grid */
+.rooms-gallery-full {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-light);
+}
+
+.gallery-subtitle {
+    text-align: center;
+    font-size: 24px;
+    color: var(--secondary);
+    margin-bottom: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+    gap: 20px;
+    grid-auto-flow: dense;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+.gallery-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(26,26,46,0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.gallery-item:hover::before {
+    background: linear-gradient(to top, rgba(196,30,58,0.5) 0%, transparent 60%);
+}
+
+/* Pricing Detail Section */
+.pricing-detail-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 100px 0;
+}
+
+.pricing-table-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Full Pricing Table */
+.pricing-full-table-wrapper {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.pricing-full-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.pricing-full-table thead {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    color: white;
+}
+
+.pricing-full-table th {
+    padding: 20px 16px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.pricing-full-table th small {
+    display: block;
+    font-weight: 400;
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+.pricing-full-table th.weekday {
+    background: rgba(255,255,255,0.15);
+}
+
+.pricing-full-table th.weekend {
+    background: rgba(255,255,255,0.1);
+}
+
+.pricing-full-table th.holiday {
+    background: rgba(196,30,58,0.3);
+}
+
+.pricing-full-table td {
+    padding: 18px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-dark);
+}
+
+.pricing-full-table td:first-child {
+    font-weight: 700;
+    color: var(--primary);
+    width: 50px;
+}
+
+.pricing-full-table td:nth-child(2) {
+    text-align: left;
+    font-weight: 600;
+}
+
+.pricing-full-table td:nth-child(2) strong {
+    color: var(--secondary);
+}
+
+.pricing-full-table td.price {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 15px;
+}
+
+.pricing-full-table tbody tr:hover {
+    background: rgba(196,30,58,0.03);
+}
+
+.pricing-full-table tbody tr.highlight-row {
+    background: linear-gradient(90deg, rgba(196,30,58,0.08) 0%, transparent 100%);
+    border-left: 4px solid var(--primary);
+}
+
+.pricing-full-table tbody tr.highlight-row td:first-child {
+    position: relative;
+}
+
+.hot-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pricing Info Grid */
+.pricing-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.pricing-info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.pricing-info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.pricing-info-card h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pricing-info-card ul {
+    list-style: none;
+}
+
+.pricing-info-card li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-medium);
+    border-bottom: 1px dashed var(--border-light);
+}
+
+.pricing-info-card li:last-child {
+    border-bottom: none;
+}
+
+/* Pricing CTA */
+.pricing-cta-wrapper {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--secondary) 0%, #2d2d4a 100%);
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.pricing-cta-wrapper .btn-cta-main {
+    background: var(--primary);
+    color: white;
+    padding: 18px 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.pricing-cta-wrapper .btn-cta-main:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.pricing-cta-wrapper .pricing-note {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    margin: 0;
+}
+
+.btn-large {
+    padding: 20px 60px;
+    font-size: 18px;
 }
 
 /* Pricing Section */
@@ -2060,6 +2379,23 @@ section > .container {
         padding: 80px 0 60px;
     }
     
+    .hero-images-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .hero-image-main,
+    .hero-image-sub {
+        height: 200px;
+    }
+    
+    .hero-image-label {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
     .audience-grid,
     .rooms-showcase,
     .reviews-grid,
@@ -2108,6 +2444,85 @@ section > .container {
     
     .rooms-gallery-extra {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Gallery Grid Mobile */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+        gap: 12px;
+    }
+    
+    .gallery-item.large {
+        grid-row: span 2;
+    }
+    
+    .gallery-item.wide {
+        grid-column: span 2;
+    }
+    
+    .gallery-label {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .gallery-subtitle {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    /* Pricing Detail Mobile */
+    .pricing-detail-section {
+        padding: 60px 0;
+    }
+    
+    .pricing-full-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -12px;
+        border-radius: 0;
+    }
+    
+    .pricing-full-table {
+        min-width: 800px;
+        font-size: 13px;
+    }
+    
+    .pricing-full-table th {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .pricing-full-table td {
+        padding: 12px 8px;
+    }
+    
+    .pricing-full-table td.price {
+        font-size: 13px;
+    }
+    
+    .pricing-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pricing-info-card {
+        padding: 20px;
+    }
+    
+    .pricing-info-card h4 {
+        font-size: 16px;
+    }
+    
+    .pricing-cta-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .pricing-cta-wrapper .btn-cta-main {
+        padding: 14px 30px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 280px;
     }
 }
 
