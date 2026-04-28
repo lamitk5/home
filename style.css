@@ -403,9 +403,14 @@ section {
     }
 
     .price-combo {
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: 700;
     }
-
+    
+    .strike {
+        font-size: 12px;
+    }
+    
     /* Audience section */
     .audience-grid {
         grid-template-columns: 1fr;
@@ -1084,16 +1089,18 @@ section > .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    margin-bottom: 40px;
 }
 
 .audience-card {
     background: white;
-    padding: 40px 30px;
-    border-radius: 12px;
+    padding: 0;
+    border-radius: 16px;
     text-align: center;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     border: 1px solid var(--border-light);
+    overflow: hidden;
 }
 
 .audience-card:hover {
@@ -1101,53 +1108,87 @@ section > .container {
     box-shadow: var(--shadow-md);
 }
 
+.audience-header {
+    background: linear-gradient(135deg, var(--secondary) 0%, #2d2d4a 100%);
+    padding: 30px;
+    color: white;
+}
+
 .audience-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 12px;
 }
 
-.audience-card h3 {
+.audience-header h3 {
     font-size: 20px;
-    margin-bottom: 16px;
+    color: white;
+    margin: 0;
 }
 
-.audience-card ul {
+.audience-features {
     list-style: none;
     text-align: left;
-    margin-bottom: 24px;
+    padding: 30px;
+    margin: 0;
 }
 
-.audience-card li {
-    font-size: 14px;
-    color: var(--text-light);
-    margin-bottom: 10px;
-    padding-left: 16px;
+.audience-features li {
+    font-size: 15px;
+    color: var(--text-medium);
+    margin-bottom: 14px;
+    padding-left: 24px;
     position: relative;
+    line-height: 1.5;
 }
 
-.audience-card li::before {
-    content: '—';
+.audience-features li::before {
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.audience-features li:last-child {
+    margin-bottom: 0;
+}
+
+.audience-cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn-audience {
     display: inline-block;
-    background: var(--secondary);
+    background: var(--primary);
     color: white;
-    padding: 12px 28px;
-    border-radius: 4px;
+    padding: 16px 36px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(196,30,58,0.3);
 }
 
 .btn-audience:hover {
-    background: var(--primary);
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(196,30,58,0.4);
+}
+
+.btn-audience-secondary {
+    background: var(--secondary);
+    box-shadow: 0 4px 12px rgba(26,26,46,0.3);
+}
+
+.btn-audience-secondary:hover {
+    background: #2d2d4a;
+    box-shadow: 0 6px 16px rgba(26,26,46,0.4);
 }
 
 /* Rooms Section */
@@ -1647,17 +1688,18 @@ section > .container {
 
 .strike {
     text-decoration: line-through;
-    color: var(--text-light);
-    font-size: 15px;
+    color: #999;
+    font-size: 14px;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .price-combo {
     color: var(--primary);
     font-weight: 700;
-    font-size: 24px;
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 0.5px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0;
 }
 
 .hot-tag {
@@ -2402,6 +2444,17 @@ section > .container {
     .benefits-grid,
     .contact-grid-iig {
         grid-template-columns: 1fr;
+    }
+    
+    .audience-cta-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-audience {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
     }
     
     .process-timeline {
